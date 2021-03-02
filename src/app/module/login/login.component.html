@@ -1,0 +1,35 @@
+<div class="container">
+    <header class="header">HEADER - LOGO</header>
+    <div class="row text-center d-flex justify-content-center">
+        <div class="w-50">
+            <h4 class="text-blue mb-4">Welcome back</h4>
+            <h2 class="text-blue">Login</h2>
+            <p class="text-blue my-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam unde mollitia, accusantium itaque facere
+                consequatur.</p>
+            <form [formGroup]="loginForm">
+                <app-input [label]="'login'" [id]="'login'" [type]="'number'"></app-input>
+                <app-input [label]="'password'" [id]="'password'" [type]="'password'"></app-input>
+    
+            <div class="mt-4">
+                <app-button [label]="'Login'" [type]="'btn-primary'" (submit)="validateLogin()"></app-button>
+            </div>
+            </form>
+            
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <div class="row w-50  position-absolute bottom-0">
+            <div class="col">
+                <h4 class="text-blue">Don't have an account?</h4>
+                <p class="text-blue">Register hare -></p>
+            </div>
+            <div class="col">
+                <app-button [label]="'Create account'" [type]="'btn-info'" ></app-button>
+            </div>
+        </div>
+    </div>
+   
+
+
+</div>

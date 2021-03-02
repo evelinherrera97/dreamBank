@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row text-light">
+        <div class="col-2 menu px-5">
+            <app-menu></app-menu>
+        </div>
+        <div class="col-10">
+            <div class="px-5 d-flex justify-content-end navbar">
+                <i class="fas fa-bell icon ml-5"></i>
+                <i class="fas fa-comment icon"></i>
+                <div class="d-flex justify-content-center image">
+                    <div class="circle"></div>
+                    <p class="text-dark">victor cositas</p>
+                    <i class="fas fa-sort-down icon mr-3"></i>
+                </div>
+            </div>
+            <div class="row align-items-center nav px-5">
+                <div class="col-6 d-flex">
+                    <div class="photo "></div>
+                    <div>
+                        <h6>Welcome back, Victor</h6>
+                        <p>Your last login was 09/93/2021 05:30:50 PM</p>
+                    </div>
+
+                </div>
+                <div class="col-2 border-end">
+                    <P>Totla balance</P>
+                    <h2>12.343</h2>
+                </div>
+                <div class="col-4">
+                    <app-button [label]="'Request new product'" [type]="'btn-outline-info'"></app-button>
+                    <app-button [label]="'Make a Transfer'" [type]="'btn-outline-info'"></app-button>
+                </div>
+            </div>
+            <div class="mx-5">
+                <app-table></app-table>
+            </div>
+           
+        </div>
+    </div>
+</div>
