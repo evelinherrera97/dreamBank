@@ -1,20 +1,24 @@
-<table class="table table-borderless px-5">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Currency</th>
-            <th>Value</th>
-            <th>Balance</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of array">
-            <td>{{item.date}}</td>
-            <td>{{item.description}}</td>
-            <td>{{item.currency}}</td>
-            <td>{{item.value}}</td>
-            <td>{{item.balance}}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="content-table mt-5">
+    <p class="text-dark border-bottom py-3 px-2">All Accounts</p>
+    <table class="table table-borderless px-5">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Account</th>
+                <th>Status</th>
+                <th>Currency</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="tbody" *ngFor="let item of accounts; let i = index" (click)="viewDetail(i)">
+                <td>{{item.type}}</td>
+                <td>{{item.accountNumber}}{{item.accountName}}</td>
+                <td>{{item.status}}</td>
+                <td>{{item.currency}}</td>
+                <td>{{item.balance | currency}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

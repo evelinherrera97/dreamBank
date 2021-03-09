@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MainService } from 'src/app/services/main.service';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-table',
@@ -7,54 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableComponent implements OnInit {
 
-  public array = [
-     {
-      'date': '23456',
-      'description': 'hola que mas',
-      'currency': 'usb',
-      'value': 12.343,
-      'balance': 1.234
-     },
-     {
-      'date': '23456',
-      'description': 'hola que mas',
-      'currency': 'usb',
-      'value': 12.343,
-      'balance': 1.234
-     },
-     {
-      'date': '23456',
-      'description': 'hola que mas',
-      'currency': 'usb',
-      'value': 12.343,
-      'balance': 1.234
-     },
-     {
-      'date': '23456',
-      'description': 'hola que mas',
-      'currency': 'usb',
-      'value': 12.343,
-      'balance': 1.234
-     },
-     {
-      'date': '23456',
-      'description': 'hola que mas',
-      'currency': 'usb',
-      'value': 12.343,
-      'balance': 1.234
-     },
-     {
-      'date': '23456',
-      'description': 'hola que mas',
-      'currency': 'usb',
-      'value': 12.343,
-      'balance': 1.234
-     }
-  ]
+// public accounts
+@Input() accounts;
+@Input() type;
+@Output() newItemEvent = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(
+    public mainServices: MainService,
+  ) { }
+
 
   ngOnInit(): void {
+  }
+
+
+  viewDetail(value: string) {
+    this.newItemEvent.emit(value);
   }
 
 }

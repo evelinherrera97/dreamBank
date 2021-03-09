@@ -7,11 +7,24 @@
             <p class="text-blue my-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam unde mollitia, accusantium itaque facere
                 consequatur.</p>
             <form [formGroup]="loginForm">
-                <app-input [label]="'login'" [id]="'login'" [type]="'number'"></app-input>
-                <app-input [label]="'password'" [id]="'password'" [type]="'password'"></app-input>
-    
+                <div class="row">
+                    <div class="col-2 text-end d-flex align-items-center">
+                        <label for="loginForm" class="form-label">Cedula</label>
+                    </div>
+                    <div class="col-10 mt-2">
+                        <input type="number" class="form-control" id="id" formControlName="id">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2 text-end d-flex align-items-center">
+                        <label for="loginForm" class="form-label">Contraseña</label>
+                    </div>
+                    <div class="col-10 mt-2">
+                        <input type="password" class="form-control" id="password" formControlName="password">
+                    </div>
+                </div>
             <div class="mt-4">
-                <app-button [label]="'Login'" [type]="'btn-primary'" (submit)="validateLogin()"></app-button>
+                <app-button [label]="'Login'" [type]="'btn-primary'" (click)="validateLogin()"></app-button>
             </div>
             </form>
             

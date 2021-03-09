@@ -17,6 +17,8 @@ export class ButtonComponent implements OnInit {
   }
 
   public validate() {
+    console.log('sadfghjfds');
+    
     this.submit.emit();
   }
 

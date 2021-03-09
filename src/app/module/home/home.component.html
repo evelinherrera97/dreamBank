@@ -23,16 +23,17 @@
 
                 </div>
                 <div class="col-2 border-end">
-                    <P>Totla balance</P>
-                    <h2>12.343</h2>
+                    <P>Total balance</P>
+                    <h2>{{balance | currency}}</h2>
                 </div>
                 <div class="col-4">
-                    <app-button [label]="'Request new product'" [type]="'btn-outline-info'"></app-button>
+                    <app-button [label]="'Request new product'" [type]="'btn-outline-info'" routerLink="/new-product"></app-button>
                     <app-button [label]="'Make a Transfer'" [type]="'btn-outline-info'"></app-button>
                 </div>
             </div>
             <div class="mx-5">
-                <app-table></app-table>
+                <app-table [accounts]="accounts" *ngIf="!isMovements" (newItemEvent)="goToMovement($event)"></app-table>
+                <app-table-movements *ngIf="isMovements" [movement]="movement" (showAccount)="showAccounts($event)"></app-table-movements>
             </div>
            
         </div>

@@ -1,0 +1,12 @@
+.content-table {
+    box-shadow: 0 2px 6px 0 rgb(0 0 0 / 16%);
+}
+
+.thead {
+    color: #0B45D5;
+    font-weight: lighter;
+}
+
+.tbody {
+    cursor: pointer;
+}
