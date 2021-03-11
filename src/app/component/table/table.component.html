@@ -1,6 +1,6 @@
 <div class="content-table mt-5">
     <p class="text-dark border-bottom py-3 px-2">All Accounts</p>
-    <table class="table table-borderless px-5">
+    <table class="table table-borderless table-hover px-5">
         <thead>
             <tr>
                 <th>Type</th>
@@ -15,7 +15,7 @@
                 <td>{{item.type}}</td>
                 <td>{{item.accountNumber}}{{item.accountName}}</td>
                 <td>{{item.status}}</td>
-                <td>{{item.currency}}</td>
+                <td>{{item.currency | uppercase}}</td>
                 <td>{{item.balance | currency}}</td>
             </tr>
         </tbody>

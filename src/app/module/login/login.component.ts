@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MainService } from 'src/app/services/main.service';
 import { Router } from '@angular/router';
 import { Users } from 'src/app/interfaces/users';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +11,9 @@ import { Users } from 'src/app/interfaces/users';
 })
 export class LoginComponent implements OnInit {
 
+  public validId: boolean;
+  public validPassword: boolean;
+
   public user: Array<Users>;
   loginForm = new FormGroup({
     id: new FormControl('', Validators.required),
@@ -18,7 +21,7 @@ export class LoginComponent implements OnInit {
   });
 
   constructor(
-    public mainServices : MainService,
+    public authServices: AuthService,
     private router: Router
   ) { }
 
@@ -26,13 +29,13 @@ export class LoginComponent implements OnInit {
   }
 
   validateLogin() {
-    this.mainServices.getUser().subscribe(data => {
+    this.authServices.getUser().subscribe(data => {
       this.user = data;
       const userFile = this.user.find(user => user.id === this.loginForm.value.id);
-      console.log(this.loginForm);
       if (this.loginForm.valid) {
         if (userFile) {
           if (userFile.password == this.loginForm.value.password) {
+            this.authServices.Islogin = true;
             this.router.navigate(['/home']);
           } else {
             console.log('constraseña incorrecta')
@@ -41,13 +44,13 @@ export class LoginComponent implements OnInit {
           console.log('el usuario no existe')
         }
       } else {
-
+        this.validPassword = this.loginForm.get('password').hasError('required');
+        this.validId = this.loginForm.get('password').hasError('required');
       }
-     
-      
+
+
     });
-
-
   }
+
 
 }

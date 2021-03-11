@@ -12,15 +12,9 @@ export class MainService {
   public accounts: any;
 
   constructor(
-    private httpClient: HttpClient,
     private firestore: AngularFirestore
   ) { 
     
-  }
-
-  public getUser(): Observable<any>{
-    
-    return this.httpClient.get("assets/users.json");
   }
 
   public getAccount(): Observable<any> {
@@ -34,9 +28,11 @@ export class MainService {
 
 
   public getBalance() {
-
-      
-    console.log('balance', this.accounts)
+    let balance = 0;
+    this.accounts.forEach(element => {
+      balance += element.balance
+    });
+    return balance
 
   }
 

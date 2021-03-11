@@ -4,30 +4,38 @@
         <div class="w-50">
             <h4 class="text-blue mb-4">Welcome back</h4>
             <h2 class="text-blue">Login</h2>
-            <p class="text-blue my-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam unde mollitia, accusantium itaque facere
+            <p class="text-blue my-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam unde mollitia,
+                accusantium itaque facere
                 consequatur.</p>
             <form [formGroup]="loginForm">
                 <div class="row">
                     <div class="col-2 text-end d-flex align-items-center">
-                        <label for="loginForm" class="form-label">Cedula</label>
+                        <label for="loginForm" class="form-label text-blue">Id</label>
                     </div>
-                    <div class="col-10 mt-2">
-                        <input type="number" class="form-control" id="id" formControlName="id">
+                    <div class="col-10 mt-2 text-start">
+                        <input type="number" class="form-control" [ngClass]="{'invalid-form': validPassword}" id="id" formControlName="id" required>
+                        <span *ngIf="validId" class="text-danger">
+                            This input is required.
+                        </span>
+
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-2 text-end d-flex align-items-center">
-                        <label for="loginForm" class="form-label">Contraseña</label>
+                        <label for="loginForm" class="form-label text-blue">Password</label>
                     </div>
-                    <div class="col-10 mt-2">
-                        <input type="password" class="form-control" id="password" formControlName="password">
+                    <div class="col-10 mt-2 text-start">
+                        <input type="password" class="form-control" [ngClass]="{'invalid-form': validPassword}" id="password" formControlName="password" required>
+                        <span *ngIf="validPassword" class="text-danger">
+                            This input is required.
+                        </span>
                     </div>
                 </div>
-            <div class="mt-4">
-                <app-button [label]="'Login'" [type]="'btn-primary'" (click)="validateLogin()"></app-button>
-            </div>
+                <div class="mt-4">
+                    <app-button [label]="'Login'" [type]="'btn-primary'" (click)="validateLogin()"></app-button>
+                </div>
             </form>
-            
+
         </div>
     </div>
 
@@ -38,11 +46,11 @@
                 <p class="text-blue">Register hare -></p>
             </div>
             <div class="col">
-                <app-button [label]="'Create account'" [type]="'btn-info'" ></app-button>
+                <app-button [label]="'Create account'" [type]="'btn-info'"></app-button>
             </div>
         </div>
     </div>
-   
+
 
 
 </div>

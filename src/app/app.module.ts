@@ -15,6 +15,7 @@ import { NewProductComponent } from './module/new-product/new-product.component'
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { TableMovementsComponent } from './component/table-movements/table-movements.component';
+import { AuthGuard } from './guard/auth.guard';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { TableMovementsComponent } from './component/table-movements/table-movem
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

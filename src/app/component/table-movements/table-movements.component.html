@@ -1,24 +1,26 @@
-<div class="alert alert-primary d-flex justify-content-between" role="alert">
-    <p>cuenta pilas</p>
-    <i (click)="gotoBack()">cosita</i>
+<div class="alert alert-primary d-flex justify-content-between aling-items-center my-3" role="alert">
+    <p>{{accountName}}</p>
+    <i class="fas fa-sign-in-alt" (click)="gotoBack()"></i>
 </div>
-<table class="table table-borderless px-5">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Currency</th>
-            <th>Value</th>
-            <th>Balance</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="tbody" *ngFor="let item of movement">
-            <td>{{item.date}}</td>
-            <td>{{item.description}}</td>
-            <td>{{item.currency}}</td>
-            <td>{{item.value | currency}}</td>
-            <td>{{item.balance | currency}}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="content-table mt-5">
+    <table class="table table-borderless table-hover px-5">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Currency</th>
+                <th>Value</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="tbody" *ngFor="let item of movement">
+                <td>{{item.date}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.currency | uppercase}}</td>
+                <td>{{item.value | currency}}</td>
+                <td>{{item.balance | currency}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

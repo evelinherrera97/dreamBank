@@ -6,3 +6,7 @@
     height: 120px;
 }
 
+.invalid-form {
+    border: 1px solid red;
+}
+

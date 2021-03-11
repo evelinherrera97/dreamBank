@@ -5,35 +5,39 @@
         </div>
         <div class="col-10">
             <div class="px-5 d-flex justify-content-end navbar">
-                <i class="fas fa-bell icon ml-5"></i>
-                <i class="fas fa-comment icon"></i>
-                <div class="d-flex justify-content-center image">
-                    <div class="circle"></div>
-                    <p class="text-dark">victor cositas</p>
-                    <i class="fas fa-sort-down icon mr-3"></i>
+                <div class="col-3 d-flex justify-content-around">
+                    <i class="fas fa-bell icon ml-5"></i>
+                    <i class="fas fa-comment icon"></i>
+                    <div class="d-flex justify-content-center image">
+                        <div class="circle"></div>
+                        <p class="text-dark">Victor Madera</p>
+                        <i class="fas fa-sort-down icon mr-3"></i>
+                    </div>
                 </div>
             </div>
             <div class="row align-items-center nav px-5">
-                <div class="col-6 d-flex">
-                    <div class="photo "></div>
-                    <div>
+                <div class="col-5 d-flex">
+                    <div class="photo mx-3 mt-2">
+                        <img src="./../../../assets/profile.png" class="w-100">
+                    </div>
+                    <div class="mt-3">
                         <h6>Welcome back, Victor</h6>
                         <p>Your last login was 09/93/2021 05:30:50 PM</p>
                     </div>
 
                 </div>
-                <div class="col-2 border-end">
+                <div class="col-3 border-end">
                     <P>Total balance</P>
-                    <h2>{{balance | currency}}</h2>
+                    <h2>{{balance |currency}}</h2>
                 </div>
-                <div class="col-4">
-                    <app-button [label]="'Request new product'" [type]="'btn-outline-info'" routerLink="/new-product"></app-button>
+                <div class="col-4 px-5">
+                    <app-button class="mb-2" [label]="'Request new product'" [type]="'btn-outline-info'" routerLink="/new-product"></app-button>
                     <app-button [label]="'Make a Transfer'" [type]="'btn-outline-info'"></app-button>
                 </div>
             </div>
             <div class="mx-5">
                 <app-table [accounts]="accounts" *ngIf="!isMovements" (newItemEvent)="goToMovement($event)"></app-table>
-                <app-table-movements *ngIf="isMovements" [movement]="movement" (showAccount)="showAccounts($event)"></app-table-movements>
+                <app-table-movements *ngIf="isMovements" [movement]="movement" [accountName]="accountName" (showAccount)="showAccounts($event)"></app-table-movements>
             </div>
            
         </div>

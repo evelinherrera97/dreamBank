@@ -10,9 +10,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class HomeComponent implements OnInit {
 
   accounts
-  public balance: number
+  public balance = 0;
   public isMovements = false;
-  public movement: any
+  public movement: any;
+  public accountName: string
 
   constructor(
     public mainServices: MainService,
@@ -22,15 +23,20 @@ export class HomeComponent implements OnInit {
     this.mainServices.getAccount().subscribe(data => {
       this.accounts = data
       this.accounts.forEach(element => {
-        this.balance += element.balance
+        if (element.status === 'active') {
+          this.balance += +element.balance
+        }
       });
 
     })
   }
 
   goToMovement(index) {
-    this.isMovements = true;
-    this.movement = this.accounts[index].movements
+    if (this.accounts[index].movements.length !== 0) {
+      this.isMovements = true;
+      this.movement = this.accounts[index].movements
+      this.accountName = `${this.accounts[index].accountNumber} - ${this.accounts[index].accountName}`
+    }
   }
 
   showAccounts() {

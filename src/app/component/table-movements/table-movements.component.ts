@@ -8,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class TableMovementsComponent implements OnInit {
 
   @Input() movement: Array<any>;
+  @Input() accountName: string;
   @Output()showAccount = new EventEmitter();
 
   constructor() { }
