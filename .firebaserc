@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "dreambank-5c063": {
+      "hosting": {
+        "prueba-tecnica": [
+          "dreambank-5c063"
+        ]
+      }
+    }
+  }
+}
